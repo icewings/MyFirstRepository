@@ -10,13 +10,15 @@ public class Test {
 		
 		FileObject fo = new FileObject();		
 		filesName = fo.getSelectedFilesPath();
-		files = new File(filesName);
-		// 若文件或目录存在
-		if (files.exists()) { // 如果文件或目录存在，则删除
-			fo.deleteFiles(files);
-			System.out.println("Deleted Successfully!");
+		if(null==filesName){
+			System.out.println("已取消选择");
 		} else {
-			System.out.println("Deleted Failed!");
+			files = new File(filesName);
+			// 若文件或目录存在
+			if (files.exists()) { // 如果文件或目录存在，则删除
+				fo.deleteFiles(files);
+				System.out.println("Deleted Successfully!");
+			}
 		}
 	}
 
